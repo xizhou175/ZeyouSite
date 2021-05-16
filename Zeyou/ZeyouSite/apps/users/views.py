@@ -16,6 +16,7 @@ from django.views.decorators.vary import vary_on_cookie
 from django.db.models import Q
 import os
 import openpyxl
+import xlrd
 
 class DateEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -156,6 +157,38 @@ class ParseExcelView(APIView):
                 for col in range(1, len(headers) + 1):
                     key = headers[col - 1]
                     r[key] = sheet.cell(row=row, column=col + 1).value
+                    if key == 'gender':
+                        if r[key] == '男':
+                            r[key] = 'M'
+                        else:
+                            r[key] = 'F'
+
+                    if key == 'identity':
+                        if r[key] == '家长':
+                            r[key] = 0
+                        else:
+                            r[key] = 1
+
+                    if key == 'customer_state':
+                        if r[key] == '未分配未购买':
+                            r[key] = 0
+                        if r[key] == '已分配未购买':
+                            r[key] = 1
+                        if r[key] == '未分配已购买':
+                            r[key] = 2
+                        if r[key] == '已分配已购买':
+                            r[key] = 3
+                        if r[key] == '已签约未购买':
+                            r[key] = 4
+                        if r[key] == '已签约已购买':
+                            r[key] = 5
+
+                    if key == 'date_to_add':
+                        datetime = xlrd.xldate_as_tuple(r[key], 0)  # 转化为元组形式
+                        d = date(datetime[0], datetime[1], datetime[2])
+                        r[key] = d
+                    if r[key] is None:
+                        r[key] = ""
                 lists.append(r)
 
             sqllist = []
@@ -167,9 +200,11 @@ class ParseExcelView(APIView):
                 name = cell['name']
                 gender = cell['gender']
                 wechat_num = cell['wechat_num']
-                print(wechat_num)
                 area = cell['area']
                 phone = cell['phone']
-                sql = Student(source=source, name=name, wechat_num=wechat_num, area=area)
+                identity = cell['identity']
+                sql = Student(customer_state=customer_state, date_to_add=date_to_add, source=source, name=name,
+                              wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity)
                 sqllist.append(sql)
             Student.objects.bulk_create(sqllist)
+            return Response({'message': "Successfully parsed", "status": 200})

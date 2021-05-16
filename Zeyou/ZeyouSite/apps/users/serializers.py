@@ -67,12 +67,11 @@ class CreateStudentSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def validate(self, data):
-        pass
-        #if data["gender"] != 'F' and data["gender"] != 'M':
-         #   raise serializers.ValidationError('Gender not correct')
+        if data["gender"] != 'F' and data["gender"] != 'M':
+            raise serializers.ValidationError('Gender not correct')
 
-        #if data["identity"] != 0 and data["identity"] != 1:
-         #   raise serializers.ValidationError('Identity not correct')
+        if data["identity"] != 0 and data["identity"] != 1:
+            raise serializers.ValidationError('Identity not correct')
 
     def create(self, validated_data):
         pass

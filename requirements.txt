@@ -1,5 +1,11 @@
 asgiref==3.3.4
 Django==3.2
+django-cors-headers==3.7.0
+djangorestframework==3.12.4
+djangorestframework-jwt==1.11.0
+et-xmlfile==1.1.0
+openpyxl==3.0.7
+PyJWT==1.7.1
 pytz==2021.1
 sqlparse==0.4.1
 typing-extensions==3.7.4.3
