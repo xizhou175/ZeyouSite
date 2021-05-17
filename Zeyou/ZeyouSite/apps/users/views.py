@@ -9,7 +9,7 @@ from django.forms.models import model_to_dict
 from .models import User, Student, Academy
 from .serializers import CreateUserSerializer, CreateStudentSerializer
 import json
-from datetime import date
+from datetime import date, datetime
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
@@ -17,6 +17,7 @@ from django.db.models import Q
 import os
 import openpyxl
 import xlrd
+
 
 class DateEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -140,71 +141,123 @@ class ParseExcelView(APIView):
         wb = openpyxl.load_workbook('D:\\PythonProject\\Zeyou\\file\\dataset.xlsx', data_only=True)
         allsheets = wb.sheetnames
         for i in range(len(allsheets)):
-            if i == 1:
-                break
             sheet = wb[allsheets[i]]
             maxrow = sheet.max_row
             maxcol = sheet.max_column
-
             row_dict = {}
-            headers = ["customer_state", "source", "date_to_add", "name", "gender", "wechat_num", "area",
-                       "phone", "little_assistant", "consultant", "service_consultant", "paper_writer", "identity",
-                       "school", "school_type", "curriculum_system", "curriculum_system_note", "graduation_date",
-                       "application_level", "major", "target_country", "GPA", "TOEFL", "IELTS", "SAT", "ACT", "GRE"]
-            lists = []
-            for row in range(2, maxrow + 1):
-                r = {}
-                for col in range(1, len(headers) + 1):
-                    key = headers[col - 1]
-                    r[key] = sheet.cell(row=row, column=col + 1).value
-                    if key == 'gender':
-                        if r[key] == '男':
-                            r[key] = 'M'
-                        else:
-                            r[key] = 'F'
+            if i == 0:
+                continue
+                headers = ["customer_state", "source", "date_to_add", "name", "gender", "wechat_num", "area",
+                           "phone", "little_assistant", "consultant", "service_consultant", "paper_writer", "identity",
+                           "school", "school_type", "curriculum_system", "curriculum_system_note", "graduation_date",
+                           "application_level", "major", "target_country", "GPA", "TOEFL", "IELTS", "SAT", "ACT", "GRE"]
+                lists = []
+                for row in range(2, maxrow + 1):
+                    r = {}
+                    for col in range(1, len(headers) + 1):
+                        key = headers[col - 1]
+                        r[key] = sheet.cell(row=row, column=col + 1).value
+                        if key == 'gender':
+                            if r[key] == '男':
+                                r[key] = 'M'
+                            else:
+                                r[key] = 'F'
 
-                    if key == 'identity':
-                        if r[key] == '家长':
-                            r[key] = 0
-                        else:
-                            r[key] = 1
+                        if key == 'identity':
+                            if r[key] == '家长':
+                                r[key] = 0
+                            else:
+                                r[key] = 1
 
-                    if key == 'customer_state':
-                        if r[key] == '未分配未购买':
-                            r[key] = 0
-                        if r[key] == '已分配未购买':
-                            r[key] = 1
-                        if r[key] == '未分配已购买':
-                            r[key] = 2
-                        if r[key] == '已分配已购买':
-                            r[key] = 3
-                        if r[key] == '已签约未购买':
-                            r[key] = 4
-                        if r[key] == '已签约已购买':
-                            r[key] = 5
+                        if key == 'customer_state':
+                            if r[key] == '未分配未购买':
+                                r[key] = 0
+                            if r[key] == '已分配未购买':
+                                r[key] = 1
+                            if r[key] == '未分配已购买':
+                                r[key] = 2
+                            if r[key] == '已分配已购买':
+                                r[key] = 3
+                            if r[key] == '已签约未购买':
+                                r[key] = 4
+                            if r[key] == '已签约已购买':
+                                r[key] = 5
 
-                    if key == 'date_to_add':
-                        datetime = xlrd.xldate_as_tuple(r[key], 0)  # 转化为元组形式
-                        d = date(datetime[0], datetime[1], datetime[2])
-                        r[key] = d
-                    if r[key] is None:
-                        r[key] = ""
-                lists.append(r)
+                        if key == 'date_to_add':
+                            dtime = xlrd.xldate_as_tuple(r[key], 0)  # 转化为元组形式
+                            d = date(dtime[0], dtime[1], dtime[2])
+                            r[key] = d
+                        if r[key] is None:
+                            r[key] = ""
+                    lists.append(r)
 
-            sqllist = []
-            for cell in lists:
-                # for header in headers:
-                customer_state = cell['customer_state']
-                source = cell['source']
-                date_to_add = cell['date_to_add']
-                name = cell['name']
-                gender = cell['gender']
-                wechat_num = cell['wechat_num']
-                area = cell['area']
-                phone = cell['phone']
-                identity = cell['identity']
-                sql = Student(customer_state=customer_state, date_to_add=date_to_add, source=source, name=name,
-                              wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity)
-                sqllist.append(sql)
-            Student.objects.bulk_create(sqllist)
+                sqllist = []
+                for cell in lists:
+                    # for header in headers:
+                    customer_state = cell['customer_state']
+                    source = cell['source']
+                    date_to_add = cell['date_to_add']
+                    name = cell['name']
+                    gender = cell['gender']
+                    wechat_num = cell['wechat_num']
+                    area = cell['area']
+                    phone = cell['phone']
+                    identity = cell['identity']
+                    sql = Student(customer_state=customer_state, date_to_add=date_to_add, source=source, name=name,
+                                  wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity)
+                    sqllist.append(sql)
+                Student.objects.bulk_create(sqllist)
+
+            elif i == 1:
+                headers = ["name", "source", "product_type", "teaching_assistant", "sales", "teacher",
+                           "date_of_purchasing", "product", "date_of_lecture", "hours_of_lecture", "price_per_hour"
+                           , "price_overall", "cur_state"]
+                lists = []
+                for row in range(2, maxrow + 1):
+                    r = {}
+                    for col in range(1, len(headers) + 1):
+                        key = headers[col - 1]
+                        r[key] = sheet.cell(row=row, column=col).value
+
+                        if key == 'hours_of_lecture' or key == 'price_per_hour' or key == 'price_overall':
+                            print(r[key])
+                            if r[key] is not None:
+                                r[key] = int(r[key])
+
+                        if key == 'date_of_lecture' or key == 'date_of_purchasing':
+                            if r[key] is not None:
+                                dtime = xlrd.xldate_as_tuple(r[key], 0)  # 转化为元组形式
+                                d = date(dtime[0], dtime[1], dtime[2])
+                                r[key] = d
+
+                            else:
+                                r[key] = date(1000, 1, 1)
+
+                        if r[key] is None:
+                            r[key] = ""
+                    lists.append(r)
+
+                sqllist = []
+                for cell in lists:
+                    # for header in headers:
+                    name = cell['name']
+                    source = cell['source']
+                    date_of_purchasing = cell['date_of_purchasing']
+                    hours_of_lecture = cell['hours_of_lecture']
+                    price_overall = cell["price_overall"]
+                    date_of_lecture = cell['date_of_lecture']
+                    product_type = cell['product_type']
+                    product = cell['product']
+                    price_per_hour = cell['price_per_hour']
+                    cur_state = cell['cur_state']
+                    teacher = cell['teacher']
+                    teaching_assistant = cell['teaching_assistant']
+                    sales = cell['sales']
+                    sql = Academy(name=name, source=source, price_overall=price_overall, date_of_purchasing=date_of_purchasing,
+                                  date_of_lecture=date_of_lecture, hours_of_lecture=hours_of_lecture, product=product,
+                                  product_type=product_type, price_per_hour=price_per_hour, cur_state=cur_state, teacher=teacher,
+                                  teaching_assistant=teaching_assistant, sales=sales)
+                    sqllist.append(sql)
+                Academy.objects.bulk_create(sqllist)
+
             return Response({'message': "Successfully parsed", "status": 200})
