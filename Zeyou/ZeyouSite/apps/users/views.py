@@ -89,6 +89,51 @@ class UpdatePwdView(APIView):
         return Response({'message': "Successfully modified", "status": 200})
 
 
+class UpdateStudent(APIView):
+
+    def post(self, request):
+        data = request.data
+
+        customer_state = data['customer_state']
+        source = data['source']
+        date_to_add = data['date_to_add']
+        graduation_date = data['graduation_date']
+        name = data['name']
+        gender = data['gender']
+        wechat_num = data['wechat_num']
+        area = data['area']
+        phone = data['phone']
+        little_assistant = data["little_assistant"]
+        consultant = data["consultant"]
+        service_consultant = data["service_consultant"]
+        paper_writer = data["paper_writer"]
+        identity = int(data['identity'])
+        school = data["school"]
+        school_type = data["school_type"]
+        curriculum_system = data["curriculum_system"]
+        curriculum_system_note = data["curriculum_system_note"]
+        application_level = data["application_level"]
+        major = data["major"]
+        target_country = data["target_country"]
+        GPA = data["GPA"]
+        TOEFL = data["TOEFL"]
+        IELTS = data["IELTS"]
+        SAT = data["SAT"]
+        ACT = data["ACT"]
+        GRE = data["GRE"]
+
+        d_add = date(date_to_add[0], date_to_add[1], date_to_add[2])
+        d_grad = date(graduation_date[0], graduation_date[1], graduation_date[2])
+
+        Student.objects.filter(id=data["student_id"]).update(customer_state=customer_state, date_to_add=d_add, graduation_date=d_grad,
+                                  source=source, name=name, wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity,
+                                  little_assistant=little_assistant, consultant=consultant, service_consultant=service_consultant,
+                                  paper_writer=paper_writer, school=school, school_type=school_type,
+                                  curriculum_system=curriculum_system, curriculum_system_note=curriculum_system_note,
+                                  application_level=application_level, major=major, target_country=target_country,
+                                  GPA=GPA, TOEFL=TOEFL, IELTS=IELTS, SAT=SAT, ACT=ACT, GRE=GRE)
+
+
 class FilterDepartmentView(APIView):
 
     def post(self, request):
@@ -140,13 +185,17 @@ class ParseExcelView(APIView):
 
         wb = openpyxl.load_workbook('D:\\PythonProject\\Zeyou\\file\\dataset.xlsx', data_only=True)
         allsheets = wb.sheetnames
-        for i in range(len(allsheets)):
-            sheet = wb[allsheets[i]]
+        #print(len(allsheets))
+        index = 0
+        while index < 2:
+            print(index)
+            sheet = wb[allsheets[index]]
             maxrow = sheet.max_row
             maxcol = sheet.max_column
             row_dict = {}
-            if i == 0:
-                continue
+
+            if index == 0:
+                #continue
                 headers = ["customer_state", "source", "date_to_add", "name", "gender", "wechat_num", "area",
                            "phone", "little_assistant", "consultant", "service_consultant", "paper_writer", "identity",
                            "school", "school_type", "curriculum_system", "curriculum_system_note", "graduation_date",
@@ -202,13 +251,37 @@ class ParseExcelView(APIView):
                     wechat_num = cell['wechat_num']
                     area = cell['area']
                     phone = cell['phone']
+                    little_assistant=cell["little_assistant"]
+                    consultant = cell["consultant"]
+                    service_consultant = cell["service_consultant"]
+                    paper_writer = cell["paper_writer"]
                     identity = cell['identity']
+                    school=cell["school"]
+                    school_type=cell["school_type"]
+                    curriculum_system = cell["curriculum_system"]
+                    curriculum_system_note = cell["curriculum_system_note"]
+                    application_level = cell["application_level"]
+                    major = cell["major"]
+                    target_country = cell["target_country"]
+                    GPA = cell["GPA"]
+                    TOEFL=cell["TOEFL"]
+                    IELTS=cell["IELTS"]
+                    SAT = cell["SAT"]
+                    ACT = cell["ACT"]
+                    GRE = cell["GRE"]
                     sql = Student(customer_state=customer_state, date_to_add=date_to_add, source=source, name=name,
-                                  wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity)
+                                  wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity,
+                                  little_assistant=little_assistant, consultant=consultant, service_consultant=service_consultant,
+                                  paper_writer=paper_writer, school=school, school_type=school_type,
+                                  curriculum_system=curriculum_system, curriculum_system_note=curriculum_system_note,
+                                  application_level=application_level, major=major, target_country=target_country,
+                                  GPA=GPA, TOEFL=TOEFL, IELTS=IELTS, SAT=SAT, ACT=ACT, GRE=GRE)
                     sqllist.append(sql)
                 Student.objects.bulk_create(sqllist)
+                index += 1
 
-            elif i == 1:
+            elif index == 1:
+
                 headers = ["name", "source", "product_type", "teaching_assistant", "sales", "teacher",
                            "date_of_purchasing", "product", "date_of_lecture", "hours_of_lecture", "price_per_hour"
                            , "price_overall", "cur_state"]
@@ -259,5 +332,5 @@ class ParseExcelView(APIView):
                                   teaching_assistant=teaching_assistant, sales=sales)
                     sqllist.append(sql)
                 Academy.objects.bulk_create(sqllist)
-
-            return Response({'message': "Successfully parsed", "status": 200})
+                index += 1
+        return Response({'message': "Successfully parsed", "status": 200})

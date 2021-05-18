@@ -1915,3 +1915,302 @@ INFO 2021-05-17 22:24:44,517 autoreload 636 Watching for file changes with StatR
 INFO 2021-05-17 22:25:14,121 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
 INFO 2021-05-17 22:25:15,194 autoreload 636 Watching for file changes with StatReloader
 INFO 2021-05-17 22:25:31,802 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:29:43,297 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:30:15,145 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:35:12,170 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:35:12,923 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:35:54,124 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:36:10,068 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:36:10,801 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:36:21,018 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:36:45,586 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:36:46,285 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:37:11,846 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:37:34,890 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:37:35,625 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:37:56,390 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:38:22,118 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:38:22,933 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:38:25,655 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:38:26,513 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:38:33,472 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:38:34,312 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:38:41,323 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:38:42,088 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:38:59,536 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:40:38,451 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:40:56,085 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:40:56,785 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:40:59,944 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:42:44,851 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:42:45,560 autoreload 636 Watching for file changes with StatReloader
+ERROR 2021-05-18 21:43:09,143 log 230 Internal Server Error: /parseexcel/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py", line 146, in post
+    maxrow = sheet.max_row
+AttributeError: 'str' object has no attribute 'max_row'
+ERROR 2021-05-18 21:43:09,147 basehttp 161 "POST /parseexcel/ HTTP/1.1" 500 99902
+INFO 2021-05-18 21:43:23,558 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:43:24,350 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:44:53,268 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:44:53,981 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:44:58,016 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:45:12,902 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:45:13,603 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:45:22,699 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:45:23,490 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:46:09,827 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:46:10,589 autoreload 636 Watching for file changes with StatReloader
+ERROR 2021-05-18 21:46:14,685 log 230 Internal Server Error: /parseexcel/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: users_student.wechat_num
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py", line 233, in post
+    Student.objects.bulk_create(sqllist)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 515, in bulk_create
+    objs_without_pk, fields, batch_size, ignore_conflicts=ignore_conflicts,
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 1293, in _batched_insert
+    self._insert(item, fields=fields, using=self.db, ignore_conflicts=ignore_conflicts)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1410, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_student.wechat_num
+ERROR 2021-05-18 21:46:14,696 basehttp 161 "POST /parseexcel/ HTTP/1.1" 500 331006
+INFO 2021-05-18 21:46:40,717 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:46:54,694 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:48:10,684 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:48:11,408 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:48:21,331 autoreload 636 Watching for file changes with StatReloader
+ERROR 2021-05-18 21:48:29,856 log 230 Internal Server Error: /parseexcel/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: users_student.wechat_num
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py", line 234, in post
+    Student.objects.bulk_create(sqllist)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 515, in bulk_create
+    objs_without_pk, fields, batch_size, ignore_conflicts=ignore_conflicts,
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 1293, in _batched_insert
+    self._insert(item, fields=fields, using=self.db, ignore_conflicts=ignore_conflicts)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1410, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_student.wechat_num
+ERROR 2021-05-18 21:48:29,865 basehttp 161 "POST /parseexcel/ HTTP/1.1" 500 331006
+INFO 2021-05-18 21:48:57,686 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:49:00,859 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:49:37,653 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:49:38,405 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:49:55,350 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:53:39,351 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:53:40,406 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:53:44,518 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:55:33,935 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:55:34,638 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:55:53,924 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:57:36,595 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:57:37,447 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:57:52,588 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 21:58:36,848 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:58:37,884 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:58:48,093 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:58:48,827 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:59:01,109 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:59:01,944 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:59:11,166 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:59:11,895 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 21:59:32,687 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 21:59:33,391 autoreload 636 Watching for file changes with StatReloader
+ERROR 2021-05-18 21:59:39,324 log 230 Internal Server Error: /parseexcel/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: users_student.wechat_num
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py", line 235, in post
+    Student.objects.bulk_create(sqllist)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 515, in bulk_create
+    objs_without_pk, fields, batch_size, ignore_conflicts=ignore_conflicts,
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 1293, in _batched_insert
+    self._insert(item, fields=fields, using=self.db, ignore_conflicts=ignore_conflicts)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1410, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_student.wechat_num
+ERROR 2021-05-18 21:59:39,335 basehttp 161 "POST /parseexcel/ HTTP/1.1" 500 331014
+INFO 2021-05-18 22:00:00,384 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 22:00:03,731 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 22:01:10,223 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 22:01:11,040 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 22:01:16,961 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 22:01:17,770 autoreload 636 Watching for file changes with StatReloader
+ERROR 2021-05-18 22:01:31,605 log 230 Internal Server Error: /parseexcel/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py", line 256, in post
+    dtime = xlrd.xldate_as_tuple(r[key], 0)  # 转化为元组形式
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\xlrd\xldate.py", line 95, in xldate_as_tuple
+    if xldate < 0.00:
+TypeError: '<' not supported between instances of 'str' and 'float'
+ERROR 2021-05-18 22:01:31,609 basehttp 161 "POST /parseexcel/ HTTP/1.1" 500 113911
+INFO 2021-05-18 22:02:03,177 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 22:02:03,922 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 22:02:08,919 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 22:02:09,641 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 22:03:24,576 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 22:03:25,316 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 22:03:31,754 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 22:03:42,560 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 22:05:25,354 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 22:05:26,092 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-18 22:06:21,554 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
+INFO 2021-05-18 22:12:13,778 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-18 22:12:14,358 autoreload 636 Watching for file changes with StatReloader
