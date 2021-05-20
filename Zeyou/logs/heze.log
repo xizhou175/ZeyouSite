@@ -2214,3 +2214,137 @@ INFO 2021-05-18 22:05:26,092 autoreload 636 Watching for file changes with StatR
 INFO 2021-05-18 22:06:21,554 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46
 INFO 2021-05-18 22:12:13,778 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
 INFO 2021-05-18 22:12:14,358 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:38:12,227 autoreload 636 Watching for file changes with StatReloader
+ERROR 2021-05-20 22:42:58,262 log 230 Internal Server Error: /studentadd/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\serializers.py", line 423, in run_validation
+    assert value is not None, '.validate() should return the validated data'
+AssertionError: .validate() should return the validated data
+ERROR 2021-05-20 22:42:58,269 basehttp 161 "POST /studentadd/?name=zhouxi&gender HTTP/1.1" 500 119830
+INFO 2021-05-20 22:43:54,344 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:43:55,140 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:44:23,613 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:44:24,346 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:44:42,101 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:44:42,820 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:44:48,821 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:44:49,556 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:45:00,887 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:45:01,601 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:45:07,627 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:45:08,369 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:45:20,264 autoreload 636 Watching for file changes with StatReloader
+ERROR 2021-05-20 22:45:28,006 log 230 Internal Server Error: /studentadd/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\serializers.py", line 207, in save
+    '`create()` did not return an object instance.'
+AssertionError: `create()` did not return an object instance.
+ERROR 2021-05-20 22:45:28,011 basehttp 161 "POST /studentadd/?name=zhouxi&gender HTTP/1.1" 500 119682
+INFO 2021-05-20 22:45:52,131 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:45:52,842 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:45:55,583 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\serializers.py changed, reloading.
+INFO 2021-05-20 22:45:56,299 autoreload 636 Watching for file changes with StatReloader
+WARNING 2021-05-20 22:45:58,773 log 230 Bad Request: /studentadd/
+WARNING 2021-05-20 22:45:58,775 basehttp 161 "POST /studentadd/?name=zhouxi&gender HTTP/1.1" 400 113
+ERROR 2021-05-20 22:46:25,011 log 230 Internal Server Error: /studentadd/
+Traceback (most recent call last):
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\serializers.py", line 515, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "D:\PythonProject\Zeyou\venv\lib\site-packages\rest_framework\fields.py", line 1299, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+ERROR 2021-05-20 22:46:25,017 basehttp 161 "POST /studentadd/?name=zhouxi&gender HTTP/1.1" 500 131529
+INFO 2021-05-20 22:49:17,978 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\students\models.py changed, reloading.
+INFO 2021-05-20 22:49:19,108 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:51:15,138 autoreload 636 Watching for file changes with StatReloader
+WARNING 2021-05-20 22:51:45,247 log 230 Bad Request: /studentadd/
+WARNING 2021-05-20 22:51:45,247 basehttp 161 "POST /studentadd/?name=zhouxi&gender HTTP/1.1" 400 113
+INFO 2021-05-20 22:52:06,441 basehttp 161 "POST /studentadd/?name=zhouxi&gender HTTP/1.1" 201 444
+INFO 2021-05-20 22:53:33,197 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-20 22:53:33,939 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:54:05,663 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-20 22:54:06,450 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:54:17,797 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-20 22:54:18,651 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:54:21,425 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-20 22:54:22,167 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:55:03,032 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 72
+INFO 2021-05-20 22:56:32,784 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\models.py changed, reloading.
+INFO 2021-05-20 22:56:33,533 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:56:50,299 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\models.py changed, reloading.
+INFO 2021-05-20 22:56:51,087 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:56:56,042 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 72
+INFO 2021-05-20 22:58:20,975 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:58:23,683 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 72
+INFO 2021-05-20 22:59:37,989 autoreload 250 D:\PythonProject\Zeyou\Zeyou\ZeyouSite\apps\users\views.py changed, reloading.
+INFO 2021-05-20 22:59:38,792 autoreload 636 Watching for file changes with StatReloader
+INFO 2021-05-20 22:59:46,664 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 72
+INFO 2021-05-20 23:00:06,466 basehttp 161 "POST /parseexcel/ HTTP/1.1" 200 46

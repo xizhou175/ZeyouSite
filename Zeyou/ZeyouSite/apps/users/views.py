@@ -6,8 +6,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import JsonResponse, QueryDict
 from django.forms.models import model_to_dict
-from .models import User, Student, Academy
-from .serializers import CreateUserSerializer, CreateStudentSerializer
+from .models import User, Academy
+from students.models import Student
+from .serializers import CreateUserSerializer
 import json
 from datetime import date, datetime
 from django.utils.decorators import method_decorator
@@ -33,13 +34,6 @@ class UserView(CreateAPIView):
     用户注册
     """
     serializer_class = CreateUserSerializer
-
-
-class StudentView(CreateAPIView):
-    """
-    学生注册
-    """
-    serializer_class = CreateStudentSerializer
 
 
 class UserUpdateView(APIView):
@@ -87,51 +81,6 @@ class UpdatePwdView(APIView):
         user.save()
         # Successfully modified 修改成功
         return Response({'message': "Successfully modified", "status": 200})
-
-
-class UpdateStudent(APIView):
-
-    def post(self, request):
-        data = request.data
-
-        customer_state = data['customer_state']
-        source = data['source']
-        date_to_add = data['date_to_add']
-        graduation_date = data['graduation_date']
-        name = data['name']
-        gender = data['gender']
-        wechat_num = data['wechat_num']
-        area = data['area']
-        phone = data['phone']
-        little_assistant = data["little_assistant"]
-        consultant = data["consultant"]
-        service_consultant = data["service_consultant"]
-        paper_writer = data["paper_writer"]
-        identity = int(data['identity'])
-        school = data["school"]
-        school_type = data["school_type"]
-        curriculum_system = data["curriculum_system"]
-        curriculum_system_note = data["curriculum_system_note"]
-        application_level = data["application_level"]
-        major = data["major"]
-        target_country = data["target_country"]
-        GPA = data["GPA"]
-        TOEFL = data["TOEFL"]
-        IELTS = data["IELTS"]
-        SAT = data["SAT"]
-        ACT = data["ACT"]
-        GRE = data["GRE"]
-
-        d_add = date(date_to_add[0], date_to_add[1], date_to_add[2])
-        d_grad = date(graduation_date[0], graduation_date[1], graduation_date[2])
-
-        Student.objects.filter(id=data["student_id"]).update(customer_state=customer_state, date_to_add=d_add, graduation_date=d_grad,
-                                  source=source, name=name, wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity,
-                                  little_assistant=little_assistant, consultant=consultant, service_consultant=service_consultant,
-                                  paper_writer=paper_writer, school=school, school_type=school_type,
-                                  curriculum_system=curriculum_system, curriculum_system_note=curriculum_system_note,
-                                  application_level=application_level, major=major, target_country=target_country,
-                                  GPA=GPA, TOEFL=TOEFL, IELTS=IELTS, SAT=SAT, ACT=ACT, GRE=GRE)
 
 
 class FilterDepartmentView(APIView):
@@ -233,9 +182,11 @@ class ParseExcelView(APIView):
                                 r[key] = 5
 
                         if key == 'date_to_add':
-                            dtime = xlrd.xldate_as_tuple(r[key], 0)  # 转化为元组形式
-                            d = date(dtime[0], dtime[1], dtime[2])
-                            r[key] = d
+                            if r[key] is not None:
+                                dtime = xlrd.xldate_as_tuple(r[key], 0)  # 转化为元组形式
+                                d = date(dtime[0], dtime[1], dtime[2])
+                                r[key] = d
+
                         if r[key] is None:
                             r[key] = ""
                     lists.append(r)
@@ -277,7 +228,10 @@ class ParseExcelView(APIView):
                                   application_level=application_level, major=major, target_country=target_country,
                                   GPA=GPA, TOEFL=TOEFL, IELTS=IELTS, SAT=SAT, ACT=ACT, GRE=GRE)
                     sqllist.append(sql)
-                Student.objects.bulk_create(sqllist)
+                try:
+                    Student.objects.bulk_create(sqllist)
+                except:
+                    return Response({"message": "Parameters are incomplete and cannot be saved", "status": 400})
                 index += 1
 
             elif index == 1:
@@ -303,10 +257,10 @@ class ParseExcelView(APIView):
                                 d = date(dtime[0], dtime[1], dtime[2])
                                 r[key] = d
 
-                            else:
-                                r[key] = date(1000, 1, 1)
+                            #else:
+                            #    r[key] = date(1000, 1, 1)
 
-                        if r[key] is None:
+                        if r[key] is None and key != 'date_of_lecture' and key != 'date_of_purchasing':
                             r[key] = ""
                     lists.append(r)
 
@@ -331,6 +285,9 @@ class ParseExcelView(APIView):
                                   product_type=product_type, price_per_hour=price_per_hour, cur_state=cur_state, teacher=teacher,
                                   teaching_assistant=teaching_assistant, sales=sales)
                     sqllist.append(sql)
-                Academy.objects.bulk_create(sqllist)
+                try:
+                    Academy.objects.bulk_create(sqllist)
+                except:
+                    return Response({"message": "Parameters are incomplete and cannot be saved", "status": 400})
                 index += 1
         return Response({'message': "Successfully parsed", "status": 200})

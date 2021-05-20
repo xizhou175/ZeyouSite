@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.forms.models import model_to_dict
 import json
 
-from .models import User, Student, Academy
+from .models import User, Academy
 
 
 def create_user_json(username, password, password2, email, phone, department):
