@@ -10,5 +10,8 @@ urlpatterns = [
     url(r'^pwdupdate/$', views.UpdatePwdView.as_view(), name='pwdUpdate'),
     url(r'^upload/$', views.UploadView.as_view(), name='upload'),
     url(r'^parseexcel/$', views.ParseExcelView.as_view(), name='parseexcel'),
-    url(r'^filterdepartment/$', views.FilterDepartmentView.as_view(), name='filterDepartment')
+    url(r'^filterdepartment/$', views.FilterDepartmentView.as_view(), name='filterDepartment'),
+    url(r'^personalinfo/$', views.PersonalInfoView.as_view(), name='personalInfo'),
+    url(r'^lookupuser/$', views.LookupUser.as_view(), name='userLookup'),
+    url(r'^deleteuser/$', views.DeleteUser.as_view(), name='userdelete')
 ]

@@ -128,6 +128,40 @@ class UploadView(APIView):
         return Response({'message': "Successfully uploaded", "status": 48})
 
 
+class PersonalInfoView(APIView):
+    def post(self, request):
+        try:
+            user = User.objects.filter(id=request.data["user_id"]).first()
+            return Response({"name": user.username, "phone": user.phone, "email": user.email})
+        except:
+            return Response({"message": "user not found", "status": 400})
+
+
+class LookupUser(APIView):
+    def post(self, request):
+        try:
+            current_user = User.objects.filter(id=request.data["user_id"]).first()
+            if current_user.department != 'A':
+                return Response({"message": "Permission denied", "status": 400})
+            user = User.objects.filter(request.data["name"]).first()
+            user_dict = model_to_dict(user)
+            return user_dict
+        except:
+            Response({"message": "User lookup error", "status": 400})
+
+
+class DeleteUser(APIView):
+    def post(self, request):
+        try:
+            current_user = User.objects.filter(id=request.data["user_id"]).first()
+            if current_user.department != 'A':
+                return Response({"message": "Permission denied", "status": 400})
+            User.objects.filter(request.data["name"]).delete()
+            return Response({"message": "User deletion successfully", "status": 201})
+        except:
+            Response({"message": "User lookup error", "status": 400})
+
+
 class ParseExcelView(APIView):
     def post(self, request):
         if os.path.exists('D:\\PythonProject\\Zeyou\\file\\dataset.xlsx') == False:
