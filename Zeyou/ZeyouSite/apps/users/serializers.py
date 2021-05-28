@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Academy
+from .models import User
 from rest_framework.response import Response
 from rest_framework_jwt.settings import api_settings
 
@@ -37,7 +37,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        print("validated_data",validated_data)
+        print("validated_data", validated_data)
         del validated_data['password2']
 
         try:
@@ -59,8 +59,3 @@ class CreateUserSerializer(serializers.ModelSerializer):
         user.token = token
 
         return user
-
-
-class AcademySericalizer(serializers.ModelSerializer):
-    class Meta:
-        model = Academy

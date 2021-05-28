@@ -46,17 +46,19 @@ class UpdateStudent(APIView):
         ACT = data["ACT"]
         GRE = data["GRE"]
 
-        d_add = date(date_to_add[0], date_to_add[1], date_to_add[2])
-        d_grad = date(graduation_date[0], graduation_date[1], graduation_date[2])
+        #d_add = date(date_to_add[0], date_to_add[1], date_to_add[2])
+        #d_grad = date(graduation_date[0], graduation_date[1], graduation_date[2])
 
         try:
-            Student.objects.filter(id=data["student_id"]).update(customer_state=customer_state, date_to_add=d_add, graduation_date=d_grad,
+            Student.objects.filter(id=data["student_id"]).update(customer_state=customer_state, date_to_add=date_to_add, graduation_date=graduation_date,
                                   source=source, name=name, wechat_num=wechat_num, area=area, phone=phone, gender=gender, identity=identity,
                                   little_assistant=little_assistant, consultant=consultant, service_consultant=service_consultant,
                                   paper_writer=paper_writer, school=school, school_type=school_type,
                                   curriculum_system=curriculum_system, curriculum_system_note=curriculum_system_note,
                                   application_level=application_level, major=major, target_country=target_country,
                                   GPA=GPA, TOEFL=TOEFL, IELTS=IELTS, SAT=SAT, ACT=ACT, GRE=GRE)
+            return Response({"message": "Successfully updated", "status": 201})
         except:
-            return Response({"message":"Parameters are incomplete and cannot be saved","status":400})
+            return Response({"message": "Parameters are incomplete and cannot be saved", "status": 400})
+
 

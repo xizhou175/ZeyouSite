@@ -6,8 +6,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import JsonResponse, QueryDict
 from django.forms.models import model_to_dict
-from .models import User, Academy
+from .models import User
 from students.models import Student
+from academies.models import Academy
 from .serializers import CreateUserSerializer
 import json
 from datetime import date, datetime
